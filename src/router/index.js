@@ -25,11 +25,6 @@ export default new Router({
       component: Home
     },
     {
-      path: '/subject/:sid/lecture/:id',
-      name: 'infolectures',
-      component: InfoLectures
-    },
-    {
       path: '/login',
       name: 'login',
       component: Login
@@ -40,32 +35,37 @@ export default new Router({
       component: Register
     },
     {
-      path: '/:id/dashboard',
+      path: 'users/:id/dashboard',
       name: 'user_dashboard',
       component: Dashboard
     },
     {
-      path: '/:id/edit',
+      path: 'users/:id/edit',
       name: 'edit_user',
       component: EditUser
     },
     {
-      path: '/:id/calendar',
+      path: 'users/:id/calendar',
       name: 'calendar',
       component: Calendar
     },
     {
-      path: '/lecture/create',
+      path: '/users/:id/subjects/:sid/lectures/:id',
+      name: 'infolectures',
+      component: InfoLectures
+    },
+    {
+      path: '/users/:id/subjects/:sid/lectures/add',
       name: 'createlecture',
       component: CreateLecture
     },
     {
-      path: '/submissions',
+      path: '/users/:id/subjects/:sid/submissions/add',
       name: 'submission',
       component: Submission
     },
     {
-      path: '/reminders',
+      path: '/users/:id/reminders/add',
       name: 'reminder',
       component: Reminder
     },
@@ -75,17 +75,17 @@ export default new Router({
       component: AllEvents
     },
     {
-      path: '/event/create',
+      path: '/events/add',
       name: 'newevent',
       component: NewEvents
     },
     {
-      path: '/event/edit',
+      path: '/events/:id/edit',
       name: 'editevent',
       component: EditEvent
     },
     {
-      path: '/event/info',
+      path: '/events/:id',
       name: 'eventinfo',
       component: EventsInfo
     }
