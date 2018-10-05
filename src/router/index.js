@@ -11,7 +11,7 @@ import AllEvents from '@/components/Events/AllEvents'
 import NewEvents from '@/components/Events/NewEvents'
 import EditEvent from '@/components/Events/EditEvent'
 import EventsInfo from '@/components/Events/EventsInfo'
-
+import Books from '@/components/library/Books'
 Vue.use(Router)
 
 export default new Router({
@@ -70,7 +70,11 @@ export default new Router({
       path: '/event/info',
       name: 'eventinfo',
       component: EventsInfo
+    },
+    {
+      path: '/library/books',
+      name: 'books',
+      component: Books
     }
-
   ]
 })
