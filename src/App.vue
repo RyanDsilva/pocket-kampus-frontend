@@ -1,23 +1,29 @@
 <template>
   <v-app>
-    <v-navigation-drawer></v-navigation-drawer>
-    <v-toolbar></v-toolbar>
+    <Navbar></Navbar>
     <v-content>
       <router-view></router-view>
     </v-content>
-    <v-footer></v-footer>
+    <Footer></Footer>
   </v-app>
 </template>
 
 <script>
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Navbar,
+    Footer
+  }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
