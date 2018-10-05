@@ -1,7 +1,12 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <v-app>
+    <v-navigation-drawer></v-navigation-drawer>
+    <v-toolbar></v-toolbar>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+    <v-footer></v-footer>
+  </v-app>
 </template>
 
 <script>
