@@ -5,19 +5,14 @@
         <div class="council-reg">
           <v-card raised class="mx-auto my-5 card-wrapper">
             <v-card-text class="form-content">
-              <h1 class="reg-title">Register</h1>
+              <h1 class="reg-title">Update Details</h1>
               <v-form>
-                <v-text-field v-model="username" type="text" label="Username" required></v-text-field>
                 <v-text-field v-model="name" type="text" label="Name" required></v-text-field>
-                <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
                 <v-text-field v-model="year" type="text" label="Year" required></v-text-field>
                 <v-text-field v-model="branch" type="text" label="Branch" required></v-text-field>
                 <v-slider v-model="attendance_criteria" thumb-label label="Attendance Criteria"></v-slider>
-                <v-btn color="indigo" dark @click.prevent="signup">Register</v-btn>
+                <v-btn color="indigo" dark @click.prevent="edit">Update Details</v-btn>
               </v-form>
-              <p class="my-2">Already A User?
-                <router-link class="log-link" to="/login">Login!</router-link>
-              </p>
             </v-card-text>
           </v-card>
         </div>
@@ -31,19 +26,21 @@ import axios from 'axios'
 export default {
   name: 'register',
   data: () => ({
-    username: '',
-    password: '',
     name: '',
     year: '',
     branch: '',
     attendance_criteria: '',
     error: ''
   }),
+  // eslint-disable-next-line
+  created() {
+    // Add Logic
+  },
   methods: {
     // eslint-disable-next-line
-    signup() {
+    edit() {
       axios
-        .post('/register', {
+        .put('link', {
           username: this.username,
           password: this.password,
           name: this.name,
@@ -52,11 +49,7 @@ export default {
           attendance_criteria: this.attendance_criteria
         })
         .then(res => {
-          const data = res.data
-          this.$session.start()
-          this.$session.set('user', data)
-          localStorage.setItem('user', JSON.stringify(data))
-          this.$router.push('/events')
+          this.$router.push('/dashboard')
         })
         .catch(err => {
           this.error = err.message

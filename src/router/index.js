@@ -4,6 +4,9 @@ import Home from '@/components/Home'
 import InfoLectures from '@/components/lecture/InfoLectures'
 import Login from '@/components/user/Login'
 import Register from '@/components/user/Register'
+import EditUser from '@/components/user/UserEdit'
+import Dashboard from '@/components/user/Dashboard'
+import Calendar from '@/components/user/Calendar'
 import CreateLecture from '@/components/lecture/CreateLecture'
 import Submission from '@/components/Submissions/Submission'
 import Reminder from '@/components/Reminder/Reminder'
@@ -22,11 +25,6 @@ export default new Router({
       component: Home
     },
     {
-      path: '/subject/:sid/lecture/:id',
-      name: 'infolectures',
-      component: InfoLectures
-    },
-    {
       path: '/login',
       name: 'login',
       component: Login
@@ -37,17 +35,37 @@ export default new Router({
       component: Register
     },
     {
-      path: '/lecture/create',
+      path: '/users/:id/dashboard',
+      name: 'user_dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/users/:id/edit',
+      name: 'edit_user',
+      component: EditUser
+    },
+    {
+      path: '/users/:id/calendar',
+      name: 'calendar',
+      component: Calendar
+    },
+    {
+      path: '/users/:id/subjects/:sid/lectures/:id',
+      name: 'infolectures',
+      component: InfoLectures
+    },
+    {
+      path: '/users/:id/subjects/:sid/lectures/add',
       name: 'createlecture',
       component: CreateLecture
     },
     {
-      path: '/submissions',
+      path: '/users/:id/subjects/:sid/submissions/add',
       name: 'submission',
       component: Submission
     },
     {
-      path: '/reminders',
+      path: '/users/:id/reminders/add',
       name: 'reminder',
       component: Reminder
     },
@@ -57,20 +75,19 @@ export default new Router({
       component: AllEvents
     },
     {
-      path: '/event/create',
+      path: '/events/add',
       name: 'newevent',
       component: NewEvents
     },
     {
-      path: '/event/edit',
+      path: '/events/:id/edit',
       name: 'editevent',
       component: EditEvent
     },
     {
-      path: '/event/info',
+      path: '/events/:id',
       name: 'eventinfo',
       component: EventsInfo
     }
-
   ]
 })

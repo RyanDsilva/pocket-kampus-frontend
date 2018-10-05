@@ -2,12 +2,9 @@
   <span>
     <v-navigation-drawer v-model="drawer" temporary dark absolute class="blue-grey darken-4">
       <v-list>
-        <v-list-tile class="sidebarHeader" height="auto">
-          <v-list-tile-avatar tile size="50">
-            <img src="../assets/logo.png">
-          </v-list-tile-avatar>
+        <v-list-tile class="sidebarHeader">
           <v-list-tile-content>
-            <v-list-tile-title class="council-name">Activities</v-list-tile-title>
+            <v-list-tile-title class="council-name">Pocket Kampus</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -48,7 +45,7 @@
     <v-toolbar color="indigo darken-1" dark>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text main">
-        <router-link to="/">Activities</router-link>
+        <router-link to="/">Pocket Kampus</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -117,9 +114,8 @@ export default {
   margin: 10px;
 }
 .council-name {
-  line-height: auto;
+  padding: 1em auto;
   font-weight: 700;
-  font-size: 1.9em;
-  margin-left: 0.5em;
+  font-size: 1.8em;
 }
 </style>

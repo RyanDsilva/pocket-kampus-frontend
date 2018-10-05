@@ -42,7 +42,8 @@ export default {
     event: {},
     error: ''
   }),
-  created () {
+  // eslint-disable-next-line
+  created() {
     axios
       // eslint-disable-next-line
       .get('/event/' + this.$route.params.id)
@@ -61,8 +62,8 @@ export default {
 }
 </script>
 
-<style scoped>s
-#event-info {
+<style scoped>
+s #event-info {
   font-size: 1.2em;
 }
 .header {
