@@ -6,6 +6,7 @@ import Login from '@/components/user/Login'
 import Register from '@/components/user/Register'
 import CreateLecture from '@/components/lecture/CreateLecture'
 import Submission from '@/components/Submissions/Submission'
+import Reminder from '@/components/Reminder/Reminder'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/submissions',
       name: 'submission',
       component: Submission
+    },
+    {
+      path: '/reminders',
+      name: 'reminder',
+      component: Reminder
     }
   ]
 })
