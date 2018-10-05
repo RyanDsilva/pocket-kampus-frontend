@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Login from '@/components/user/Login'
 import Register from '@/components/user/Register'
+import EditUser from '@/components/user/UserEdit'
+import Dashboard from '@/components/user/Dashboard'
 
 Vue.use(Router)
 
@@ -22,6 +24,16 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/:id/dashboard',
+      name: 'user_dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/:id/edit',
+      name: 'edit_user',
+      component: EditUser
     }
   ]
 })
