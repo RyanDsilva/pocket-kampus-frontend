@@ -1,11 +1,32 @@
 <template>
-    <div id="page-heading">
-        <h1>MEP</h1>
-        <h2>Time</h2>
-        <p>8:45am-9:45am</p>
-        <h3>Notes</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis sequi explicabo nobis iste rerum maiores ipsum esse facilis atque doloribus exercitationem nihil, non at laudantium tenetur optio dicta amet mollitia. Illum, alias fugit culpa nemo veritatis ex possimus iusto placeat quae est sit neque dolores repellendus iure impedit, atque qui. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis sequi explicabo nobis iste rerum maiores ipsum esse facilis atque doloribus exercitationem nihil, non at laudantium tenetur optio dicta amet mollitia. Illum, alias fugit culpa nemo veritatis ex possimus iusto placeat quae est sit neque dolores repellendus iure impedit, atque qui.</p>
-    </div>
+<v-container>
+    <v-layout>
+    <v-flex xs12 sm6 offset-sm3>
+      <v-card>
+          <v-container fill-height fluid>
+            <v-layout fill-height>
+              <v-flex xs12 mx-auto align-center flexbox>
+                <span class="headline">MEP</span>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        <v-card-title>
+          <div class="px-4">
+            <span class="grey--text">Timing</span><br>
+            <span>8:45am-9:45am</span><br>
+            <span class="grey--text">Description</span><br>
+            <span>Lorem ipsum dolor sit amet, porta amet quis condimentum, in sit, leo in ipsum. Nunc diam egestas condimentum nulla molestie enim, lacus purus sapien aliquam neque eu semper. Malesuada ut illo nascetur wisi velit, mauris nisl suscipit libero ante sit, in accumsan amet tortor, faucibus non sodales hymenaeos. Gravida dignissim iaculis. Integer ultrices rhoncus donec diam, ante aenean augue leo duis vivamus nibh, risus in porttitor luctus, elit tellus justo tellus ut ligula. Proin feugiat dui neque urna, nulla sollicitudin mauris, ligula orci magna non neque tortor, feugiat ultrices sociosqu laborum tincidunt feugiat, eu class commodi.</span>
+
+          </div>
+        </v-card-title>
+        <v-card-actions>
+          <v-btn flat color="orange">Present</v-btn>
+          <v-btn flat color="orange">Absent</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</v-container>
 </template>
 
 <script>
@@ -15,20 +36,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#page-heading {
-  text-align: center;
-  color: #808080;
-
-  h1{
-    font-weight:700;
-    color: #3949ab;
-    font-size: 2em
+.btn{
+  position: absolute;
   }
-h2{
-   color:#3949ab;
-   }
-h3{
-   color:#3949ab;
-  }
-}
 </style>
