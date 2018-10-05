@@ -35,17 +35,17 @@ export default new Router({
       component: Register
     },
     {
-      path: 'users/:id/dashboard',
+      path: '/users/:id/dashboard',
       name: 'user_dashboard',
       component: Dashboard
     },
     {
-      path: 'users/:id/edit',
+      path: '/users/:id/edit',
       name: 'edit_user',
       component: EditUser
     },
     {
-      path: 'users/:id/calendar',
+      path: '/users/:id/calendar',
       name: 'calendar',
       component: Calendar
     },
