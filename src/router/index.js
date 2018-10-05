@@ -5,6 +5,7 @@ import InfoLectures from '@/components/lecture/InfoLectures'
 import Login from '@/components/user/Login'
 import Register from '@/components/user/Register'
 import CreateLecture from '@/components/lecture/CreateLecture'
+import Submission from '@/components/Submissions/Submission'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/lecture/create',
       name: 'createlecture',
       component: CreateLecture
+    },
+    {
+      path: '/submissions',
+      name: 'submission',
+      component: Submission
     }
   ]
 })
