@@ -11,6 +11,7 @@
                 <v-text-field v-model="name" type="text" label="Name" required></v-text-field>
                 <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
                 <v-text-field v-model="year" type="text" label="Year" required></v-text-field>
+                <v-text-field v-model="email" type="email" label="Email" required></v-text-field>
                 <v-text-field v-model="branch" type="text" label="Branch" required></v-text-field>
                 <v-text-field v-model="collegeName" type="text" label="College Name" required></v-text-field>
                 <v-slider v-model="attendance_criteria" thumb-label label="Attendance Criteria"></v-slider>
@@ -35,6 +36,7 @@ export default {
     username: '',
     password: '',
     name: '',
+    email: '',
     year: '',
     branch: '',
     collegeName: '',
@@ -49,6 +51,7 @@ export default {
           username: this.username,
           password: this.password,
           name: this.name,
+          email: this.email,
           year: this.year,
           branch: this.branch,
           collegeName: this.collegeName,

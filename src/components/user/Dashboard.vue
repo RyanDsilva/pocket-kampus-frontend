@@ -88,7 +88,7 @@
             </v-toolbar>
             <v-card-text>
               <v-list>
-                <v-card color="blue-grey" v-for="subject in subjects" :key="subject.name" :to="subjectLink+subject._id" class="white--text">
+                <v-card color="blue-grey my-1" v-for="subject in subjects" :key="subject.name" :to="subjectLink+subject._id" class="white--text">
                   <v-card-title primary-title>
                     <h2>{{subject.name}}</h2>
                     <h3 class="ml-auto">{{subject.teacher}}</h3>
