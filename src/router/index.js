@@ -12,6 +12,8 @@ import NewEvents from '@/components/Events/NewEvents'
 import EditEvent from '@/components/Events/EditEvent'
 import EventsInfo from '@/components/Events/EventsInfo'
 import Books from '@/components/library/Books'
+import AddSubject from '@/components/Subject/AddSubject'
+import SubjectInfo from '@/components/Subject/SubjectInfo'
 Vue.use(Router)
 
 export default new Router({
@@ -75,6 +77,16 @@ export default new Router({
       path: '/library/books',
       name: 'books',
       component: Books
+    },
+    {
+      path: '/subject/add',
+      name: 'addsubject',
+      component: AddSubject
+    },
+    {
+      path: '/subject/info',
+      name: 'subjectinfo',
+      component: SubjectInfo
     }
   ]
 })
