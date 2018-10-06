@@ -1,0 +1,146 @@
+<template>
+  <div id="dashboard">
+    <v-container grid-list-md>
+      <v-layout row wrap>
+        <v-flex xs12 md7 align-center>
+          <v-card raised class="text-xs-center">
+            <v-card-title>
+              <v-avatar size="300" class="mx-auto">
+                <v-img position="center center" src="../../assets/dp.jpg"></v-img>
+              </v-avatar>
+            </v-card-title>
+            <v-card-text>
+              <h1>Ryan Dsilva</h1>
+              <h3 class="subheading">Third Year, IT</h3>
+              <h3 class="subheading">Fr. Conceicao Rodrigues College of Engineering</h3>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 md5 align-center>
+          <v-card raised class="text-xs-center">
+            <v-toolbar color="indigo" dark>
+              <h3 class="mx-auto">Reminders</h3>
+            </v-toolbar>
+            <v-card-text>
+              <v-list>
+                <v-list-tile ripple v-for="reminder in reminders" :key="reminder.title">
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{reminder.title}}</v-list-tile-title>
+                    <v-list-tile-sub-title>{{reminder.description}}</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </v-list>
+            </v-card-text>
+            <v-btn absolute dark fab bottom right color="indigo" :to="reminderLink">
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-card>
+          <br>
+          <v-divider class="my-4"></v-divider>
+          <div class="text-xs-center">
+            <v-btn color="indigo" dark large :to="calLink">View Calendar</v-btn>
+          </div>
+        </v-flex>
+      </v-layout>
+      <v-divider class="my-3"></v-divider>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <v-card raised class="text-xs-center">
+            <v-toolbar color="red lighten-2" dark>
+              <h3 class="mx-auto">Pending Submissions</h3>
+            </v-toolbar>
+            <v-card-text>
+              <v-list>
+                <v-list-tile ripple v-for="subm in submissions" :key="subm.title">
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{subm.title}}</v-list-tile-title>
+                    <v-list-tile-sub-title>{{subm.description}}</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-switch v-model="subm.status"></v-switch>
+                  </v-list-tile-action>
+                </v-list-tile>
+              </v-list>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-divider class="my-3"></v-divider>
+      <v-layout row wrap>
+        <v-flex xs12 align-center>
+          <v-card raised class="text-xs-center">
+            <v-toolbar color="green lighten-2" dark>
+              <h3 class="mx-auto">Subjects</h3>
+            </v-toolbar>
+            <v-card-text>
+              <v-list>
+                <v-card color="blue-grey" v-for="subject in subjects" :key="subject.name" :to="subject.link" class="white--text">
+                  <v-card-title primary-title>
+                    <h2>{{subject.name}}</h2>
+                    <h3 class="ml-auto">{{subject.teacher}}</h3>
+                  </v-card-title>
+                </v-card>
+              </v-list>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Dashboard',
+  // eslint-disable-next-line
+  data() {
+    return {
+      reminders: [
+        {
+          title: 'Test 1',
+          description: 'Blah Blah 12345'
+        },
+        {
+          title: 'Test 2',
+          description: 'Blah Blah 12345'
+        }
+      ],
+      submissions: [
+        {
+          title: 'MEP Assignment 1',
+          description: 'Blah Blah 12345',
+          status: false
+        },
+        {
+          title: 'IP Assignment 1',
+          description: 'Blah Blah 12345',
+          status: true
+        }
+      ],
+      subjects: [
+        {
+          name: 'Microprocessor and Embedded Systems',
+          teacher: 'Prof. Garima Tripathi',
+          link: '123456789'
+        }
+      ]
+    }
+  },
+  computed: {
+    // eslint-disable-next-line
+    calLink() {
+      return '/users/' + this.$route.params.id + '/calendar'
+    },
+    // eslint-disable-next-line
+    reminderLink() {
+      return '/users/' + this.$route.params.id + '/reminders/add'
+    }
+  }
+}
+</script>
+
+<style scoped>
+.rounded {
+  border-radius: 50%;
+}
+</style>
