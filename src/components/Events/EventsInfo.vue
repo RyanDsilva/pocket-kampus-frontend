@@ -21,7 +21,7 @@
             {{event.date.substring(0,10)}}
           </div>
           <div class="register text-xs-center my-1">
-            <v-btn :to="'/events/' + event._id + '/register'" color="indigo" dark class="register-btn">Register</v-btn>
+            <v-btn @click.stop="register" color="indigo" dark class="register-btn">Register</v-btn>
           </div>
         </v-flex>
       </v-layout>
@@ -37,6 +37,18 @@ export default {
     event: {},
     error: ''
   }),
+  methods: {
+    register() {
+      console.log(this.event)
+      console.log(this.$store.getters.getUser._id)
+      axios
+        .post('/events/' + this.$route.params.id + '/register', {
+          uid: this.$store.getters.getUser._id,
+          event: this.event
+        })
+        .then(this.$router.push('/events'))
+    }
+  },
   // eslint-disable-next-line
   created() {
     axios

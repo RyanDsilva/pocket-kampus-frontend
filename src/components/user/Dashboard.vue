@@ -40,6 +40,20 @@
           <div class="text-xs-center">
             <v-btn color="indigo" dark large :to="calLink">View Calendar</v-btn>
           </div>
+          <div class="text-xs-center">
+            <v-btn color="indigo" dark large to="/library/books">Library</v-btn>
+          </div>
+        </v-flex>
+      </v-layout>
+      <v-divider class="my-3"></v-divider>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <h3 class="text-xs-center">Attendance Meter</h3>
+          <v-tooltip bottom>
+            <v-progress-linear slot="activator" background-color="success" color="info" :value="userAttendance" height="20">
+            </v-progress-linear>
+            <span>{{userAttendance}}</span>
+          </v-tooltip>
         </v-flex>
       </v-layout>
       <v-divider class="my-3"></v-divider>
@@ -104,7 +118,9 @@ export default {
     return {
       reminders: [],
       submissions: [],
-      subjects: []
+      subjects: [],
+      attendedLects: [],
+      totalLectures: 0
     }
   },
   computed: {
@@ -123,20 +139,30 @@ export default {
     // eslint-disable-next-line
     subjectLink() {
       return '/users/' + this.$route.params.id + '/subjects/'
+    },
+    userAttendance() {
+      const attended = this.attendedLects.length
+      const attendanceP = (attended / this.totalLectures) * 100
+      return attendanceP
     }
   },
-  created () {
+  created() {
     axios.get('/users/' + this.$route.params.id + '/dashboard').then(res => {
       const data = res.data
       this.reminders = data.reminders
+      this.attendedLects = data.attendance
       this.subjects = data.subjects
       data.subjects.forEach(subject => {
         axios
           .get('/users/' + this.$route.params.id + '/subjects/' + subject._id)
           .then(res => {
             const submissions = res.data.submissions
+            const lectures = res.data.lectures
             submissions.forEach(submission => {
               this.submissions.push(submission)
+            })
+            lectures.forEach(lecture => {
+              this.totalLectures += 1
             })
           })
       })

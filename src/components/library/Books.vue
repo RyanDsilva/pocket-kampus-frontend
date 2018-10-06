@@ -4,6 +4,14 @@
     <div class="book-cards">
       <v-container grid-list-md>
         <v-layout row wrap>
+          <v-flex xs12 align-center>
+            <div class="text-xs-center">
+              <h1>Library</h1>
+              <v-btn to="/library/books/add" fab dark color="indigo">
+                <v-icon>add</v-icon>
+              </v-btn>
+            </div>
+          </v-flex>
           <v-flex v-for="book in books" :key="book.title" xs12 md6 lg3>
             <v-card>
               <v-img src="../../assets/test.jpg"></v-img>
