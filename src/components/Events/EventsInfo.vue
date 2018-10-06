@@ -9,7 +9,7 @@
           <div class="header">{{event.name}}</div>
           <small class="font-weight-light grey--text ">{{event.type}}</small>
           <hr class="my-2">
-          <div class="display-1 font-weight-light grey--text "></div>
+          <div class="display-1 font-weight-light grey--text ">{{event.host}}</div>
         </v-flex>
       </v-layout>
       <v-layout row wrap class="my-1">
@@ -20,13 +20,8 @@
             <strong>Date: </strong>
             {{event.date.substring(0,10)}}
           </div>
-          <div class="time">
-            <strong>Duration: </strong>
-            {{event.duration}}
-          </div>
           <div class="register text-xs-center my-1">
-            <v-btn :to="event.link" color="indigo" dark class="register-btn">Register</v-btn>
-            <v-btn :to="event.edit" color="indigo" dark class="register-btn mx-2">Edit Event</v-btn>
+            <v-btn :to="'/events/' + event._id + '/register'" color="indigo" dark class="register-btn">Register</v-btn>
           </div>
         </v-flex>
       </v-layout>
@@ -46,14 +41,10 @@ export default {
   created() {
     axios
       // eslint-disable-next-line
-      .get('/event/' + this.$route.params.id)
+      .get('/events/' + this.$route.params.id)
       .then(res => {
         const data = res.data
         this.event = data
-        // eslint-disable-next-line
-        this.event.link = '/event/' + this.$route.params.id + '/register'
-        // eslint-disable-next-line
-        this.event.edit = '/event/' + this.$route.params.id + '/edit'
       })
       .catch(err => {
         this.error = err.message

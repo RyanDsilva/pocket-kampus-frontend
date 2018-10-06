@@ -25,7 +25,7 @@
             <v-list-tile-title>Dashboard</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile to="/register" class="side-links">
+        <v-list-tile v-if="!isLoggedIn" to="/register" class="side-links">
           <v-list-tile-content>
             <v-list-tile-title>Register</v-list-tile-title>
           </v-list-tile-content>
@@ -50,7 +50,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn v-if="!isLoggedIn" to="/login" flat>Login</v-btn>
-        <v-btn to="/register" flat>Register</v-btn>
+        <v-btn v-if="!isLoggedIn" to="/register" flat>Register</v-btn>
         <v-btn v-if="isLoggedIn" :to="makeLink" flat>Dashboard</v-btn>
         <v-btn to="/events" flat>Events</v-btn>
         <v-btn v-if="isLoggedIn" @click.prevent="logout" flat>Logout</v-btn>
@@ -91,7 +91,7 @@ export default {
     // eslint-disable-next-line
     makeLink() {
       // eslint-disable-next-line
-      return '/council/' + this.user._id + '/dashboard'
+      return '/users/' + this.user._id + '/dashboard'
     },
     // eslint-disable-next-line
     user() {

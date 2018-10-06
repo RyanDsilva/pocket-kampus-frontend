@@ -82,7 +82,11 @@
                 </v-card>
               </v-list>
             </v-card-text>
+            <v-btn absolute dark fab bottom right color="green lighten-2" :to="subjectAdd">
+              <v-icon>add</v-icon>
+            </v-btn>
           </v-card>
+          <br>
         </v-flex>
       </v-layout>
     </v-container>
@@ -90,40 +94,16 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Dashboard',
   // eslint-disable-next-line
   data() {
     return {
-      reminders: [
-        {
-          title: 'Test 1',
-          description: 'Blah Blah 12345'
-        },
-        {
-          title: 'Test 2',
-          description: 'Blah Blah 12345'
-        }
-      ],
-      submissions: [
-        {
-          title: 'MEP Assignment 1',
-          description: 'Blah Blah 12345',
-          status: false
-        },
-        {
-          title: 'IP Assignment 1',
-          description: 'Blah Blah 12345',
-          status: true
-        }
-      ],
-      subjects: [
-        {
-          name: 'Microprocessor and Embedded Systems',
-          teacher: 'Prof. Garima Tripathi',
-          link: '123456789'
-        }
-      ]
+      reminders: [],
+      submissions: [],
+      subjects: []
     }
   },
   computed: {
@@ -134,7 +114,19 @@ export default {
     // eslint-disable-next-line
     reminderLink() {
       return '/users/' + this.$route.params.id + '/reminders/add'
+    },
+    // eslint-disable-next-line
+    subjectAdd() {
+      return '/users/' + this.$route.params.id + '/subjects/add'
     }
+  },
+  created() {
+    axios.get('/users/' + this.$route.params.id + '/dashboard').then(res => {
+      const data = res.data
+      this.reminders = data.reminders
+      this.submissions = data.subjects.submissions
+      this.subjects = data.subjects
+    })
   }
 }
 </script>
