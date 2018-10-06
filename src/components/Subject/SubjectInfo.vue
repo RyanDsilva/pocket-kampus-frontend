@@ -62,7 +62,7 @@ export default {
     subject: {},
     error: ''
   }),
-  created() {
+  created () {
     axios
       .get(
         '/users/' +
