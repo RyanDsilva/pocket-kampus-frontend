@@ -17,14 +17,31 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
   name: 'subject',
   data: () => ({
     subject: {
       name: '',
-      teacher: ''
+      teacher: '',
+      error: ''
     }
-  })
+  }),
+  methods: {
+    submit() {
+      axios
+        .post('/users/' + this.$route.params.id + '/subjects/add', {
+          subject: this.subject
+        })
+        .then(
+          this.$router.push('/users/' + this.$route.params.id + '/dashboard')
+        )
+        .catch(err => {
+          this.error = err.message
+        })
+    }
+  }
 }
 </script>
 <style scoped>

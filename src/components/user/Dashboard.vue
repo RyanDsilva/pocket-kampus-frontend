@@ -74,7 +74,7 @@
             </v-toolbar>
             <v-card-text>
               <v-list>
-                <v-card color="blue-grey" v-for="subject in subjects" :key="subject.name" :to="subject.link" class="white--text">
+                <v-card color="blue-grey" v-for="subject in subjects" :key="subject.name" :to="subjectLink+subject._id" class="white--text">
                   <v-card-title primary-title>
                     <h2>{{subject.name}}</h2>
                     <h3 class="ml-auto">{{subject.teacher}}</h3>
@@ -82,6 +82,7 @@
                 </v-card>
               </v-list>
             </v-card-text>
+            <br>
             <v-btn absolute dark fab bottom right color="green lighten-2" :to="subjectAdd">
               <v-icon>add</v-icon>
             </v-btn>
@@ -118,6 +119,10 @@ export default {
     // eslint-disable-next-line
     subjectAdd() {
       return '/users/' + this.$route.params.id + '/subjects/add'
+    },
+    // eslint-disable-next-line
+    subjectLink() {
+      return '/users/' + this.$route.params.id + '/subjects/'
     }
   },
   created() {

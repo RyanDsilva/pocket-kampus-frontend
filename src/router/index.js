@@ -52,17 +52,17 @@ export default new Router({
       component: Calendar
     },
     {
-      path: '/users/:id/subjects/:sid/lectures/:id',
-      name: 'infolectures',
-      component: InfoLectures
-    },
-    {
-      path: '/users/:id/subjects/:sid/lectures/add',
+      path: '/users/:id/subjects/:subject_id/lectures/add',
       name: 'createlecture',
       component: CreateLecture
     },
     {
-      path: '/users/:id/subjects/:sid/submissions/add',
+      path: '/users/:id/subjects/:subject_id/lectures/:lecture_id',
+      name: 'infolectures',
+      component: InfoLectures
+    },
+    {
+      path: '/users/:id/subjects/:subject_id/submissions/add',
       name: 'submission',
       component: Submission
     },
@@ -97,12 +97,12 @@ export default new Router({
       component: Books
     },
     {
-      path: '/subject/add',
+      path: '/users/:id/subjects/add',
       name: 'addsubject',
       component: AddSubject
     },
     {
-      path: '/subject/info',
+      path: '/users/:id/subjects/:subject_id',
       name: 'subjectinfo',
       component: SubjectInfo
     }

@@ -1,14 +1,14 @@
 <template>
-    <div id="add-submission">
+  <div id="add-submission">
     <v-container class="wrapper" grid-list-md>
       <v-layout row wrap>
         <v-flex xs12 class="text-xs-center">
           <h2 class="new-header">Add New Submission</h2>
           <v-form ref="form" lazy-validation>
             <v-text-field v-model="submission.title" label="Title" required></v-text-field>
-            <v-textarea v-model="submission.subject" label="Subject"></v-textarea>
-             <div class="subheading mb-2">Due Date:</div>
-            <v-date-picker v-model="submission.date" reactive required></v-date-picker>
+            <v-textarea v-model="submission.description" label="Subject"></v-textarea>
+            <div class="subheading mb-2">Due Date:</div>
+            <v-date-picker v-model="submission.dueDate" reactive required></v-date-picker>
             <div class="my-2 mx-auto">
               <v-btn @click="submit" color="indigo" dark>Add New Submission</v-btn>
             </div>
@@ -21,15 +21,40 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'submission',
   data: () => ({
     submission: {
       title: '',
-      subject: '',
+      description: '',
       duedate: ''
     }
-  })
+  }),
+  methods: {
+    submit() {
+      axios
+        .post(
+          '/users/' +
+            this.$route.params.id +
+            '/subjects/' +
+            this.$route.params.subject_id +
+            '/submissions/add',
+          {
+            submission: this.submission
+          }
+        )
+        .then(
+          this.$router.push(
+            '/users/' +
+              this.$route.params.id +
+              '/subjects/' +
+              this.$route.params.subject_id
+          )
+        )
+    }
+  }
 }
 </script>
 
