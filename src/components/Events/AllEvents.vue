@@ -23,7 +23,7 @@
                 </div>
               </v-card-title>
               <v-card-actions>
-                <v-btn class="mx-auto" :to="event.link" dark color="indigo">More Info</v-btn>
+                <v-btn class="mx-auto" :to="'/events/' + event._id" dark color="indigo">More Info</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -34,12 +34,27 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'AllEvents',
   data: () => ({
     events: [],
     error: ''
-  })
+  }),
+  created() {
+    axios
+      .get('/events')
+      .then(res => {
+        const data = res.data
+        data.forEach(event => {
+          this.events.push(event)
+        })
+      })
+      .catch(err => {
+        this.error = err.message
+      })
+  }
 }
 </script>
 

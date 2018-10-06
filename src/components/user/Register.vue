@@ -12,6 +12,7 @@
                 <v-text-field v-model="password" type="password" label="Password" required></v-text-field>
                 <v-text-field v-model="year" type="text" label="Year" required></v-text-field>
                 <v-text-field v-model="branch" type="text" label="Branch" required></v-text-field>
+                <v-text-field v-model="collegeName" type="text" label="College Name" required></v-text-field>
                 <v-slider v-model="attendance_criteria" thumb-label label="Attendance Criteria"></v-slider>
                 <v-btn color="indigo" dark @click.prevent="signup">Register</v-btn>
               </v-form>
@@ -36,6 +37,7 @@ export default {
     name: '',
     year: '',
     branch: '',
+    collegeName: '',
     attendance_criteria: '',
     error: ''
   }),
@@ -49,6 +51,7 @@ export default {
           name: this.name,
           year: this.year,
           branch: this.branch,
+          collegeName: this.collegeName,
           attendance_criteria: this.attendance_criteria
         })
         .then(res => {
@@ -56,7 +59,7 @@ export default {
           this.$session.start()
           this.$session.set('user', data)
           localStorage.setItem('user', JSON.stringify(data))
-          this.$router.push('/events')
+          this.$router.push('/users/' + data._id + '/dashboard')
         })
         .catch(err => {
           this.error = err.message

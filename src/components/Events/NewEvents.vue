@@ -37,11 +37,11 @@ export default {
     items: ['Technical', 'Non-Technical', 'Sports', 'Literary']
   }),
   methods: {
-    submit () {
+    submit() {
       // this.event.host = this.$store.state.user._id;
       axios
-        .post('/event/create', { event: this.event })
-        .then(this.$router.push('/event/all'))
+        .post('/events/add', { event: this.event })
+        .then(this.$router.push('/events'))
         .catch(err => {
           this.error = err.message
         })

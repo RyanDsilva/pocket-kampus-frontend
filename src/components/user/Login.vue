@@ -43,7 +43,7 @@ export default {
           this.$session.start()
           this.$session.set('user', data)
           localStorage.setItem('user', JSON.stringify(data))
-          this.$router.push('/events')
+          this.$router.push('/users/' + data._id + '/dashboard')
         })
         .catch(err => {
           this.error = err.message
