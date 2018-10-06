@@ -57,7 +57,7 @@ export default new Router({
       component: CreateLecture
     },
     {
-      path: '/users/:id/subjects/:subject_id/lectures/:lecture_id',
+      path: '/users/:id/subjects/:subject_id/lectures/:l_id',
       name: 'infolectures',
       component: InfoLectures
     },

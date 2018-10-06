@@ -14,10 +14,12 @@
             </v-toolbar>
             <v-card-text>
               <v-list>
-                <v-list-tile ripple v-for="lecture in subject.lectures" :key="lecture.date">
+                <v-list-tile ripple v-for="lecture in subject.lectures" :key="lecture.date" :to="lectureLink+lecture._id">
                   <v-list-tile-content>
                     <v-list-tile-title>{{lecture.date}}</v-list-tile-title>
-                    <v-list-tile-sub-title>{{lecture.description}}</v-list-tile-sub-title>
+                    <v-list-tile-sub-title>
+                      {{lecture.description}}
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
@@ -90,6 +92,15 @@ export default {
         '/subjects/' +
         this.$route.params.subject_id +
         '/lectures/add'
+      )
+    },
+    lectureLink() {
+      return (
+        '/users/' +
+        this.$route.params.id +
+        '/subjects/' +
+        this.$route.params.subject_id +
+        '/lectures/'
       )
     }
   }

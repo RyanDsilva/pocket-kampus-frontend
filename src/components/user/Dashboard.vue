@@ -129,8 +129,17 @@ export default {
     axios.get('/users/' + this.$route.params.id + '/dashboard').then(res => {
       const data = res.data
       this.reminders = data.reminders
-      this.submissions = data.subjects.submissions
       this.subjects = data.subjects
+      data.subjects.forEach(subject => {
+        axios
+          .get('/users/' + this.$route.params.id + '/subjects/' + subject._id)
+          .then(res => {
+            const submissions = res.data.submissions
+            submissions.forEach(submission => {
+              this.submissions.push(submission)
+            })
+          })
+      })
     })
   }
 }
