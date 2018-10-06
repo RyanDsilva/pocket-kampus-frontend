@@ -1,16 +1,16 @@
 <template>
-    <div id="add-books">
+  <div id="add-books">
     <v-container class="wrapper" grid-list-md>
       <v-layout row wrap>
         <v-flex xs12 class="text-xs-center">
           <h2 class="new-header">Add New Books</h2>
           <v-form ref="form" lazy-validation>
-            <v-text-field v-model="book.name" label="Book Name" required></v-text-field>
-            <v-select :items="items" label="Book Type" v-model="book.type" required=""></v-select>
+            <v-text-field v-model="book.title" label="Book Name" required></v-text-field>
+            <v-select :items="items" label="Book Type" v-model="book.type" required></v-select>
             <v-textarea v-model="book.description" label="Book Description" required></v-textarea>
             <v-text-field v-model="book.link" label="Book Link" required=""></v-text-field>
             <div>
-              <v-btn @click="submit" color="indigo" dark>Add New Book</v-btn>
+              <v-btn @click.stop="submit" color="indigo" dark>Add New Book</v-btn>
             </div>
           </v-form>
         </v-flex>
@@ -20,11 +20,13 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-    name: 'NewBook',
+  name: 'NewBook',
   data: () => ({
     book: {
-      name: '',      
+      title: '',
       type: '',
       description: '',
       link: ''
@@ -32,7 +34,13 @@ export default {
     error: '',
     items: ['Fiction', 'Non-Fiction', 'Reference Books', 'Autobiographies']
   }),
-
+  methods: {
+    submit() {
+      axios
+        .post('/library/books/add', { book: this.book })
+        .then(this.$router.push('/library/books'))
+    }
+  }
 }
 </script>
 
