@@ -125,7 +125,7 @@ export default {
       return '/users/' + this.$route.params.id + '/subjects/'
     }
   },
-  created() {
+  created () {
     axios.get('/users/' + this.$route.params.id + '/dashboard').then(res => {
       const data = res.data
       this.reminders = data.reminders
