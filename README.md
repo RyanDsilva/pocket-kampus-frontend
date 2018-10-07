@@ -6,7 +6,7 @@
 </p>
 
 ![Made With JavaScript](https://img.shields.io/badge/Made%20With-JavaScript-brightgreen.svg)
-![Made With Node.js](https://img.shields.io/badge/Made%20With-Node.js-green.svg)
+![Made With Vue.js](https://img.shields.io/badge/Made%20With-Vue.js-green.svg)
 
 ---
 
