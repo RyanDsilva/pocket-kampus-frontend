@@ -1,21 +1,52 @@
-# kjsce-32
+# College Kampus ![Build](https://img.shields.io/badge/build-passing-green.svg)
 
-> College Tracker
+<p align="center">
+  <a href="#" rel="noopener">
+ <img width=500px src="./landing.JPG" alt="Header Image"></a>
+</p>
 
-## Build Setup
+![Made With JavaScript](https://img.shields.io/badge/Made%20With-JavaScript-brightgreen.svg)
+![Made With Node.js](https://img.shields.io/badge/Made%20With-Node.js-green.svg)
 
-``` bash
-# install dependencies
-npm install
+---
 
-# serve with hot reload at localhost:8080
-npm run dev
+> Managing College Life is now super simple!
 
-# build for production with minification
-npm run build
+---
 
-# build for production and view the bundle analyzer report
-npm run build --report
+## Features
+
+- Calendar View
+- Reminders
+- Subjects : Submissions and Lectures
+- Attendance Tracker
+- Events Explore Page
+- Emails upon Event Registration
+- e-Library
+
+---
+
+## Requirements
+
+- Node.js and Node package manager (npm)
+
+---
+
+## Installation & Setup
+
+```sh
+$ git clone https://github.com/RyanDsilva/college-kampus-frontend.git
+
+$ npm i
+
+$ npm run dev
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+---
+
+## Contributers
+
+- [Ryan Dsilva](https://github.com/RyanDsilva)
+- [Neha Patil](https://github.com/Nehaa-Patil)
+- [Ashna Shah](https://github.com/ashna111)
+- [Anushka Paradkar](https://github.com/anushkaparadkar)

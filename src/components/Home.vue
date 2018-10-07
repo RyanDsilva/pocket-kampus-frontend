@@ -19,7 +19,7 @@
       </v-container>
     </section>
     <br>
-    <section id="kollab-content" class="my-4">
+    <!-- <section id="kollab-content" class="my-4">
       <v-container grid-list-md>
         <v-layout row wrap>
           <v-flex xs12 sm4>
@@ -63,7 +63,7 @@
           </v-flex>
         </v-layout>
       </v-container>
-    </section>
+    </section> -->
   </div>
 </template>
 
